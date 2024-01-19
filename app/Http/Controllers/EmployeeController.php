@@ -23,7 +23,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        $employees = $this->employeeService->getPaginate(10);
+        return view('employee.index', compact('employees'));
     }
 
     /**
