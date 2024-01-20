@@ -12,7 +12,7 @@
     <div id="app" class="card card-body">
         {{-- Flash message --}}
         <x-infos.save-data-info/>
-        
+
         <form action="{{ route('employee.update', $employee->id) }}" method="post" enctype="multipart/form-data">
             @method('put')
             @csrf
@@ -86,26 +86,32 @@
                                     @lang('views/employee/edit.input.entry-year')
                                     <small class="text-danger">*</small>
                                 </label>
-                                <input
+                                <select
                                     v-model="education.entry_year"
-                                    class="form-control"
-                                    type="text"
+                                    class="form-select"
                                     :name="'educations[' + i + '][entry_year]'"
                                     id="input-entry-year"
                                     required>
+                                    @for ($i = 0; $i < 100; $i++)
+                                        <option value="{{ date('Y') - $i }}">{{ date('Y') - $i }}</option>
+                                    @endfor
+                                </select>
                             </div>
                             <div class="col">
                                 <label for="input-graduation-year" class="form-label">
                                     @lang('views/employee/edit.input.graduation-year')
                                     <small class="text-danger">*</small>
                                 </label>
-                                <input
+                                <select
                                     v-model="education.graduation_year"
-                                    class="form-control"
-                                    type="text"
+                                    class="form-select"
                                     :name="'educations[' + i + '][graduation_year]'"
                                     id="input-graduation-year"
                                     required>
+                                    @for ($i = 0; $i < 100; $i++)
+                                        <option value="{{ date('Y') - $i }}">{{ date('Y') - $i }}</option>
+                                    @endfor
+                                </select>
                             </div>
                             <div class="col-auto align-self-end">
                                 <button @@click="removeEducationField(i)" type="button" class="btn btn-danger">-</button>
