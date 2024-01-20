@@ -15,11 +15,20 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('employee.index') }}">@lang('views/template.nav-menu-1')</a>
                     </li>
                 </ul>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ request()->cookie('lang') == 'en' ? 'English' : 'Bahasa Indonesia' }}
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ route('lang.set', 'id') }}">Bahasa Indonesia</a></li>
+                        <li><a class="dropdown-item" href="{{ route('lang.set', 'en') }}">English</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
@@ -40,6 +49,7 @@
         </div>
     </div>
 
+    <script src="{{ asset('libraries/popper/popper.min.js') }}"></script>
     <script src="{{ asset('libraries/bootstrap/js/bootstrap.js') }}"></script>
     <script src="{{ asset('libraries/vue/vue.global.js') }}"></script>
 

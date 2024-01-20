@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/employee');
 Route::resource('/employee', App\Http\Controllers\EmployeeController::class);
+
+Route::get('/lang/set/{code}', [App\Http\Controllers\LanguageController::class, 'setLanguage'])->name('lang.set');
