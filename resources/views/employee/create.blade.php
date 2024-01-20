@@ -10,6 +10,9 @@
 
 @section('content')
     <div id="app" class="card card-body">
+        {{-- Flash message --}}
+        <x-infos.save-data-info/>
+        
         <form action="{{ route('employee.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row mb-3">
