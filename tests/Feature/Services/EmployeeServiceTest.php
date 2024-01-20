@@ -67,7 +67,7 @@ class EmployeeServiceTest extends TestCase
 
         $employee = $this->employeeService->create(
             $this->faker->name(),
-            $this->faker->randomNumber(0),
+            $this->faker->numberBetween(10000000, 99999999),
             $fakePhoto,
             $this->faker->address(),
             $employeeEducations,
@@ -114,7 +114,7 @@ class EmployeeServiceTest extends TestCase
         $updatedEmployee = $this->employeeService->update(
             $employee,
             $this->faker->name(),
-            $this->faker->randomNumber(0),
+            $this->faker->numberBetween(10000000, 99999999),
             $fakePhoto,
             $this->faker->address(),
             $employeeEducations,
@@ -152,7 +152,7 @@ class EmployeeServiceTest extends TestCase
         $updatedEmployee = $this->employeeService->update(
             $employee,
             $this->faker->name(),
-            $this->faker->randomNumber(0),
+            $this->faker->numberBetween(10000000, 99999999),
             $fakePhoto,
             $this->faker->address(),
             $employeeEducations,
