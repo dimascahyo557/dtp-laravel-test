@@ -14,6 +14,6 @@ class LanguageControllerTest extends TestCase
         
         $this->get(route('lang.set', 'en'))
             ->assertRedirect($backUrl)
-            ->assertCookie('lang', 'en');
+            ->assertPlainCookie('lang', 'en');
     }
 }
