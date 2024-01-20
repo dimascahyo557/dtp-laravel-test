@@ -80,7 +80,7 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        //
+        return view('employee.edit', compact('employee'));
     }
 
     /**
@@ -97,8 +97,8 @@ class EmployeeController extends Controller
                 $request->input('id_card_number'),
                 $request->file('photo'),
                 $request->input('address'),
-                $request->input('educations'),
-                $request->input('work_experiences'),
+                $request->input('educations', []),
+                $request->input('work_experiences', []),
             );
 
             DB::commit();

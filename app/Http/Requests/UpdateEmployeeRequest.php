@@ -25,10 +25,10 @@ class UpdateEmployeeRequest extends FormRequest
             'name' => ['required', 'max:150'],
             'address' => ['sometimes', 'nullable'],
             'id_card_number' => ['required', 'numeric', 'digits_between:0,50'],
-            'photo' => ['required', 'image'],
+            'photo' => ['sometimes', 'nullable', 'image'],
 
             'educations' => ['required', 'array'],
-            'educations.*.id' => ['sometimes', 'nullable', 'exists:employee_educations,id'],
+            'educations.*.id' => ['sometimes', 'nullable', 'exists:employee_education,id'],
             'educations.*.school_name' => ['required', 'max:150'],
             'educations.*.major' => ['required', 'max:150'],
             'educations.*.entry_year' => ['required', 'date_format:Y'],
