@@ -27,7 +27,7 @@ class EmployeeControllerTest extends TestCase
     private function firstOrCreateEmployee(): Employee
     {
         $employees = $this->employeeService->getPaginate(1);
-        if (empty($employees)) {
+        if ($employees->isEmpty()) {
             $employees = Employee::factory(1)->create();
         }
         return $employees->first();
