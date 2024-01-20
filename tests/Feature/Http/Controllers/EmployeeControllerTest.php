@@ -44,7 +44,7 @@ class EmployeeControllerTest extends TestCase
 
     public function testCreate() : void
     {
-        $this->get(action([EmployeeController::class, 'index']))
+        $this->get(action([EmployeeController::class, 'create']))
             ->assertStatus(200);
     }
 

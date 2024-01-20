@@ -26,13 +26,23 @@
 
     <div class="container mt-5">
         <div class="row mb-3">
-            <h2>@yield('title')</h2>
+            <div class="col">
+                <h2>@yield('title')</h2>
+            </div>
+            <div class="col-auto">
+                @yield('control-buttons')
+            </div>
         </div>
-
-        @yield('content')
+        <div class="row mb-3">
+            <div class="col">
+                @yield('content')
+            </div>
+        </div>
     </div>
 
     <script src="{{ asset('libraries/bootstrap/js/bootstrap.js') }}"></script>
     <script src="{{ asset('libraries/vue/vue.global.js') }}"></script>
+
+    @stack('script')
 </body>
 </html>

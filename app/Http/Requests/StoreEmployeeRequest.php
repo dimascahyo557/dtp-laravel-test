@@ -27,13 +27,13 @@ class StoreEmployeeRequest extends FormRequest
             'id_card_number' => ['required', 'numeric', 'digits_between:0,50'],
             'photo' => ['required', 'image'],
 
-            'educations' => ['required', 'array'],
+            'educations' => ['sometimes', 'nullable', 'array'],
             'educations.*.school_name' => ['required', 'max:150'],
             'educations.*.major' => ['required', 'max:150'],
             'educations.*.entry_year' => ['required', 'date_format:Y'],
             'educations.*.graduation_year' => ['required', 'date_format:Y'],
 
-            'work_experiences' => ['required', 'array'],
+            'work_experiences' => ['sometimes', 'nullable', 'array'],
             'work_experiences.*.company_name' => ['required', 'max:150'],
             'work_experiences.*.position' => ['required', 'max:100'],
             'work_experiences.*.year' => ['required', 'integer'],
